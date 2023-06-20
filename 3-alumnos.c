@@ -1,7 +1,5 @@
 #include <stdio.h>
 #include <string.h>
-
-int main (){
 struct persona
 {
     int matriculas;
@@ -9,46 +7,63 @@ struct persona
     char direccion[50];
     char carrera[25];
     float promedio;
-};
-struct persona alumno1;
-struct persona alumno2;
-struct persona alumno3;
+} alumno1, alumno2, alumno3;
 
-printf("\nIngrese el numero de matricula\n");
-scanf("%d",&alumno1.matriculas );
-fflush(stdin);
+struct persona resultados(struct persona alumno)
+{
+    printf("\nMatricula\n");
+    scanf("%d", &alumno.matriculas);
+    fflush(stdin);
 
-puts("\nIngrese el nombre del estudiante");
-gets(alumno1.nombre);
+    puts("\nNombre del estudiante");
+    gets(alumno.nombre);
 
-fflush(stdin);
+    fflush(stdin);
 
-puts("\nIngrese la direccion");
-gets(alumno1.direccion);
-fflush(stdin);
+    puts("\nDireccion");
+    gets(alumno.direccion);
+    fflush(stdin);
 
-puts("\nIngrese la carrera");
-gets(alumno1.carrera);
-fflush(stdin);
+    puts("\nIngrese la carrera");
+    gets(alumno.carrera);
+    fflush(stdin);
 
+    printf("\nPromedio\n");
+    scanf("%f", &alumno.promedio);
+    fflush(stdin);
 
+    return alumno;
+}
 
-printf("\nIngrese el numero del promedio\n");
-scanf("%f",&alumno1.promedio );
-fflush(stdin);
+void imprimir(struct persona alumno)
+{
 
+    printf("La matricula del estudiante es: %d\n", alumno.matriculas);
+    puts("El nombre del estudiante es:");
+    puts(alumno.nombre);
+    puts("La direccion es:");
+    puts(alumno.direccion);
+    puts("La carrera es:");
+    puts(alumno.carrera);
+    printf("La nota promedio es: %f\n", alumno.promedio);
+}
 
+int main()
+{
+    printf("Ingrese los siguientes datos del estudiante 1\n");
+    alumno1 = resultados(alumno1);
+    printf("Ingrese los siguientes datos del estudiante 2\n");
+    alumno2 = resultados(alumno2);
+    printf("Ingrese los siguientes datos del estudiante 3\n");
+    alumno3 = resultados(alumno3);
 
-printf("La matricula dle estudainte es: %d\n", alumno1.matriculas);
-puts("El nombre del estudiante es:");
-puts(alumno1.nombre);
-puts("La direccion es:");
-puts(alumno1.direccion);
-puts("La carrera es:");
-puts(alumno1.carrera);
-printf("La nota promedio es: %f\n", alumno1.promedio);
+    printf("\nLos dato de todos los estudiantes registrados son:\n");
+    printf("Datos alumno 1:\n");
+    imprimir(alumno1);
+    printf("Datos alumno 2:\n");
+    imprimir(alumno2);
+    printf("Datos alumno 3:\n");
+    imprimir(alumno3);
 
-
-
-return 0;
+    return 0;
 }
