@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <string.h>
+
+// Se declara la estructura
 struct persona
 {
     int matriculas;
@@ -9,12 +11,13 @@ struct persona
     float promedio;
 } alumno1, alumno2, alumno3;
 
+// Funcion para ingresar datos de los estudiantes
 struct persona resultados(struct persona alumno)
 {
     printf("\nMatricula\n");
     scanf("%d", &alumno.matriculas);
     fflush(stdin);
-
+    // se usa puts y gets par ingresar y leer datos tipo caracter
     puts("\nNombre del estudiante");
     gets(alumno.nombre);
 
@@ -35,6 +38,7 @@ struct persona resultados(struct persona alumno)
     return alumno;
 }
 
+// funcion para imprimir datos de los estudiantes
 void imprimir(struct persona alumno)
 {
 
@@ -48,9 +52,11 @@ void imprimir(struct persona alumno)
     printf("La nota promedio es: %f\n", alumno.promedio);
 }
 
+// funcion principal
 int main()
 {
     printf("Ingrese los siguientes datos del estudiante 1\n");
+    //Se guardan los datos dela primera funcion para ejecutar la segunda
     alumno1 = resultados(alumno1);
     printf("Ingrese los siguientes datos del estudiante 2\n");
     alumno2 = resultados(alumno2);
